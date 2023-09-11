@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug 21 17:06:25 2023
+
+@author: bmiit202006100110040
+"""
+
+import cv2
+from matplotlib import pyplot as plt
+
+img = cv2.imread("img4.jpg", 0)
+
+width,height = img.shape
+
+size = width * height
+
+title = "Resolution = " + str(width) + " x " + str(height) + " Size = " + str(size)
+
+cv2.imshow(title, img)
+
+histo = cv2.calcHist(img,[0],None,[256],[0,256])
+
+plt.plot(histo)
+
+plt.show()
+
+cv2.waitKey(0)
+
+cv2.destroyAllWindows()
